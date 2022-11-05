@@ -11,5 +11,5 @@ spec:
   location: US
   storageClass: MULTI_REGIONAL
   providerConfigRef:
-    name: gcp-provider
+    name: gcp
   deletionPolicy: Delete
