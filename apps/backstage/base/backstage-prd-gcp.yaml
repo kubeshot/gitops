@@ -6,7 +6,7 @@ metadata:
     example: "true"
   annotations:
     # Note that this will be the actual bucket name so it has to be globally unique/available.
-    crossplane.io/external-name: testing-bucketabcdxyz
+    crossplane.io/external-name: testing-bucketabcdxyztt
 spec:
   location: US
   storageClass: MULTI_REGIONAL
