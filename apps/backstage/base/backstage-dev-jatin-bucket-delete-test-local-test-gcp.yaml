@@ -1,15 +1,1 @@
-apiVersion: storage.gcp.crossplane.io/v1alpha3
-kind: Bucket
-metadata:
-  name: backstage-dev-jatin-bucket-delete-test-local-test-gcp
-  labels:
-    example: "true"
-  annotations:
-    # Note that this will be the actual bucket name so it has to be globally unique/available.
-    crossplane.io/external-name: jatin-bucket-delete-test-local-test
-spec:
-  location: US
-  storageClass: MULTI_REGIONAL
-  providerConfigRef:
-    name: default
-  deletionPolicy: Delete    
+
