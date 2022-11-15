@@ -1,7 +1,7 @@
 apiVersion: storage.gcp.crossplane.io/v1alpha3
 kind: Bucket
 metadata:
-  name: backstage-devg-testing-jatin-github-gcp
+  name: 
   labels:
     example: "true"
   annotations:
