@@ -12,4 +12,42 @@ spec:
   storageClass: MULTI_REGIONAL
   providerConfigRef:
     name: default
-  deletionPolicy: Delete    
+  deletionPolicy: Delete 
+---
+apiVersion: storage.gcp.crossplane.io/v1alpha1
+kind: BucketPolicyMember
+metadata:
+  name: crossplane-example-bucket-bind-member-to-role
+spec:
+  forProvider:
+    bucketRef:
+      name: example
+    # member: serviceAccount:<my-sa-email>
+    serviceAccountMemberRef:
+      name: perfect-test-sa
+    role: roles/storage.objectAdmin
+  providerConfigRef:
+    name: gcp-provider    
+---
+apiVersion: storage.gcp.crossplane.io/v1alpha1
+kind: BucketPolicy
+metadata:
+  name: crossplane-example-bucket-policy
+spec:
+  forProvider:
+    bucketRef:
+      name: example
+    policy:
+      bindings:
+        - role: roles/storage.legacyBucketOwner
+          members:
+            - "projectEditor:<gcp-project>"
+            - "projectOwner:<gcp-project>"
+        - role: roles/storage.legacyBucketReader
+          members:
+            - "projectViewer:<gcp-project>"
+        - role: roles/storage.objectAdmin
+          serviceAccountMemberRefs:
+            - name: perfect-test-sa
+  providerConfigRef:
+    name: gcp-provider
