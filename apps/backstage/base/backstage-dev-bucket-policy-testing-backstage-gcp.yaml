@@ -17,7 +17,7 @@ spec:
 apiVersion: storage.gcp.crossplane.io/v1alpha1
 kind: BucketPolicyMember
 metadata:
-  name: backstage-dev-bucket-policy-testing-backstage-gcp
+  name: bucket-policy-testing-backstage
 spec:
   forProvider:
     bucketRef:
@@ -32,7 +32,7 @@ spec:
 apiVersion: storage.gcp.crossplane.io/v1alpha1
 kind: BucketPolicy
 metadata:
-  name: backstage-dev-bucket-policy-testing-backstage-gcp
+  name: bucket-policy-testing-backstage
 spec:
   forProvider:
     bucketRef:
