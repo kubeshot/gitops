@@ -1,12 +1,12 @@
 apiVersion: storage.gcp.crossplane.io/v1alpha3
 kind: Bucket
 metadata:
-  name: backstage-dev--gcp
+  name: backstage-dev-bucket-policy-testing-backstage-gcp
   labels:
     example: "true"
   annotations:
     # Note that this will be the actual bucket name so it has to be globally unique/available.
-    crossplane.io/external-name: 
+    crossplane.io/external-name: bucket-policy-testing-backstage
 spec:
   location: US
   storageClass: MULTI_REGIONAL
@@ -17,11 +17,11 @@ spec:
 apiVersion: storage.gcp.crossplane.io/v1alpha1
 kind: BucketPolicyMember
 metadata:
-  name: crossplane-example-bucket-bind-member-to-role
+  name: backstage-dev-bucket-policy-testing-backstage-gcp
 spec:
   forProvider:
     bucketRef:
-      name: example
+      name: bucket-policy-testing-backstage
     # member: serviceAccount:<my-sa-email>
     serviceAccountMemberRef:
       name: perfect-test-sa
@@ -32,11 +32,11 @@ spec:
 apiVersion: storage.gcp.crossplane.io/v1alpha1
 kind: BucketPolicy
 metadata:
-  name: crossplane-example-bucket-policy
+  name: backstage-dev-bucket-policy-testing-backstage-gcp
 spec:
   forProvider:
     bucketRef:
-      name: example
+      name: bucket-policy-testing-backstage
     policy:
       bindings:
         - role: roles/storage.legacyBucketOwner
