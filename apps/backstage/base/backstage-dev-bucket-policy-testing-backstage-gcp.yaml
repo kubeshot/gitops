@@ -19,7 +19,7 @@ spec:
 apiVersion: storage.gcp.crossplane.io/v1alpha1
 kind: BucketPolicyMember
 metadata:
-  name: bucket-policy-testing-backstage
+  name: backstage-dev-bucket-policy-testing-backstage-gcp
   labels:
     example: "true"
   annotations:
@@ -41,7 +41,7 @@ spec:
 apiVersion: storage.gcp.crossplane.io/v1alpha1
 kind: BucketPolicy
 metadata:
-  name: bucket-policy-testing-backstage
+  name: backstage-dev-bucket-policy-testing-backstage-gcp
   labels:
     example: "true"
   annotations:
